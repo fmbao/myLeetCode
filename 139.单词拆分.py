@@ -1,3 +1,4 @@
+
 # @before-stub-for-debug-begin
 from python3problem139 import *
 from typing import *
@@ -14,21 +15,22 @@ from typing import *
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
         """
+        Meslo LG M for Powerline,JetBrains Mono,monospace
         "leetcode"
         ["leet","code"]
         """
-        from itertools import permutation
-        idx_range = list(range(len(wordDict)))
-        all_index =list(permutation(idx_range))
-
-        for index in all_index:
-            new_wordDict = sorted(wordDict, key=)
-            for singleWord in wordDict:
-                if singleWord in s:
-                    s = ''.join(s.split(singleWord))
-        if s is '':
-            return True
-        else:
-            return False
+        res = list()
+        path = list()
+        def traceBack(path,start):
+            if start == len(s):
+                res.append("".join(path))
+            for word in wordDict:
+                if s[start:start + len(word)] != word:
+                    continue
+                path.append(word)
+                traceBack(path,start+len(word))
+                path.pop()
+        traceBack(path,0)
+        return s in res
 # @lc code=end
 
