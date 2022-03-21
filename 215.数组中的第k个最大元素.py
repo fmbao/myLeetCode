@@ -1,3 +1,4 @@
+
 # @before-stub-for-debug-begin
 from python3problem215 import *
 from typing import *
@@ -66,6 +67,18 @@ class Solution:
                 return nums[p]
 
         return -1
+
+        ##还有一种最小堆的解法
+        # import heapq as h
+        # heap = []
+        # for num in nums:
+        #     if len(heap) < k:
+        #         h.heappush(heap, num)
+        #     else:
+        #         if num > heap[0]:
+        #             h.heappop(heap)
+        #             h.heappush(heap, num)
+        #     return h.heappop(heap)
 
 
 
